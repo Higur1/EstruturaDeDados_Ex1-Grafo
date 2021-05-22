@@ -6,7 +6,6 @@ public class MatrizDeAdjacencia {
 
 	public static void main(String[] args){
 		
-		
 		String fileName = "C:/Users/Higur/Desktop/GrafoEx3.txt"; //Caminho do arquivo 
 		
 		// Formatação do arquivo     A B C D E F G
@@ -22,26 +21,25 @@ public class MatrizDeAdjacencia {
 		try {
 			LerArquivo(fileName);
 		} catch (IOException e) {
-			
 			e.printStackTrace();
 		}
-		
 	}
 	public static void LerArquivo(String fileName)throws IOException {
 		String [] splitLinha;
 		String linha;
 		
-		char Alfabeto[] =    {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+		char Alfabeto[] =    {'A','B','C','D','E','F','G','H',
+					          'I','J','K','L','M','N','O','P',
+					          'Q','R','S','T','U','V','W','X',
+					          'Y','Z'};
 
-		
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		linha = ler.readLine();
 		linha = ler.readLine();
-
 		splitLinha = linha.split(" ");
-		int tam = splitLinha.length-2;
 		
+		int tam = splitLinha.length-2;
 		int Matriz[][] = new int [tam][tam];
 		
 		for(int vertical = 2; vertical < tam;vertical++) {
@@ -57,11 +55,9 @@ public class MatrizDeAdjacencia {
 				if((Matriz[vertical][horizontal] !=0)&(Matriz[horizontal][vertical]!=0)) {
 					System.out.println("Aresta " + Alfabeto[vertical] + " --> " + Alfabeto[horizontal] + " peso = " +Matriz[vertical][horizontal]);
 				}
-				}
-				System.out.println(" ");
 			}
-		
-		
+			System.out.println(" ");
+		}
 		ler.close();
 	}
 }
